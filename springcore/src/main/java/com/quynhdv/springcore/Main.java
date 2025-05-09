@@ -25,5 +25,16 @@ public class Main {
         System.out.println("emailService3: " + emailService3);
         System.out.println("emailService4: " + emailService4);
 
+        ApplicationContext context1 = new AnnotationConfigApplicationContext(AppConfig.class);
+        EmailService eService1 = context1.getBean("emailService", EmailService.class);
+        System.out.println("eService1: "+eService1);
+        EmailService eService2 = context1.getBean("emailService", EmailService.class);
+        System.out.println("eService2: "+eService2);
+        EmailService eService3 = context1.getBean("prototypeEmailService", EmailService.class);
+        System.out.println("eService3: "+eService3);
+        EmailService eService4 = context1.getBean("prototypeEmailService", EmailService.class);
+        System.out.println("eService4: "+eService4);
+
+//        emailService1.sendEmail("test1@gmail.com", "Hi");
     }
 }
